@@ -19,6 +19,7 @@ Capistrano::Configuration.instance(:must_exist).load do
 
     task :notify_deploy_started do
       if hipchat_send_notification
+        send_options.merge!(:message_format => "html")
         on_rollback do
           send_options.merge!(:color => failed_message_color)
           hipchat_client[hipchat_room_name].
