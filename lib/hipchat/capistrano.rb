@@ -25,7 +25,7 @@ Capistrano::Configuration.instance(:must_exist).load do
             send(deploy_user, "#{human} cancelled deployment of #{deployment_name} to #{env}.", send_options)
         end
 
-        message = "#{human} is deploying #{deployment_name} to #{env}"
+        message = "#{human} is deploying <a href='http://www.github.com/movenbank/alpha/commit/#{branch}'>#{deployment_name}</a> to #{env}"
         message << " (with migrations)" if hipchat_with_migrations
         message << "."
 
